@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://hammered_nail/hammered_nail.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game.gd" type="Script" id=2]
+[ext_resource path="res://plate/plate.tscn" type="PackedScene" id=3]
+[ext_resource path="res://fonts/Kenney Future.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+_PlateScene = ExtResource( 3 )
+
+[node name="MainCamera" type="Camera2D" parent="."]
+position = Vector2( 300, 512 )
+current = true
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 2.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MainCamera"]
+
+[node name="StartLabel" type="Label" parent="MainCamera/CanvasLayer"]
+margin_left = 129.701
+margin_top = 405.067
+margin_right = 496.701
+margin_bottom = 690.067
+size_flags_horizontal = 15
+size_flags_vertical = 15
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.807843, 0.184314, 0.498039, 1 )
+text = "NAIL IT DEEP!
+BY RANDY TAN SHAOXIAN
+@ONESEEDFRUIT
+oneseedfruit.itch.io
+oneseedfruit.net
+
+LUDUM DARE 48
+SOLO DEV IN ~4 HOURS
+MADE WITH GODOT ENGINE
+FONTS BY KENNEY.NL
+
+click/tap anywhere to start"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DepthLabel" type="Label" parent="MainCamera/CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -110.0
+margin_bottom = 32.0
+size_flags_horizontal = 15
+size_flags_vertical = 15
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.807843, 0.184314, 0.498039, 1 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverLabel" type="Label" parent="MainCamera/CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -183.046
+margin_top = 133.907
+margin_right = 209.954
+margin_bottom = 178.907
+size_flags_horizontal = 15
+size_flags_vertical = 15
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.807843, 0.184314, 0.498039, 1 )
+text = "game over
+click/tap anywhere to continue"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HammeredNail" parent="." instance=ExtResource( 1 )]
+position = Vector2( 302.906, 669.956 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="nail_died" from="HammeredNail" to="." method="_on_HammeredNail_nail_died"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

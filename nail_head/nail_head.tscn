@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://nail_head/nail_head.PNG" type="Texture" id=1]
+
+[node name="NailHead" type="Node2D"]
+
+[node name="nail_head" type="Sprite" parent="."]
+texture = ExtResource( 1 )

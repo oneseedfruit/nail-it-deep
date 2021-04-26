@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://wood/wood.tscn" type="PackedScene" id=1]
+
+[node name="wood_chunk" type="Node2D"]
+
+[node name="Wood" parent="." instance=ExtResource( 1 )]
+position = Vector2( -81.8949, 0 )
+
+[node name="Wood2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -48.8219, 0 )
+
+[node name="Wood3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -115.283, 0 )
+
+[node name="Wood4" parent="." instance=ExtResource( 1 )]
+position = Vector2( -16.064, 0 )
+
+[node name="Wood5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 16.6939, 0 )
+
+[node name="Wood6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 49.1369, 0 )
+
+[node name="Wood7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 82.2098, 0 )
+
+[node name="Wood8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 149.068, 0 )
+
+[node name="Wood9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 182.141, 0 )
+
+[node name="Wood10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 115.68, 0 )
+
+[node name="Wood11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 214.899, 0 )
+
+[node name="Wood12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 247.657, 0 )
+
+[node name="Wood13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 280.1, 0 )
+
+[node name="Wood14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 313.173, 0 )
+
+[node name="Wood15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 345.386, 0 )
+
+[node name="Wood16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 411.272, 0 )
+
+[node name="Wood17" parent="." instance=ExtResource( 1 )]
+position = Vector2( 444.345, 0 )
+
+[node name="Wood18" parent="." instance=ExtResource( 1 )]
+position = Vector2( 377.884, 0 )
+
+[node name="Wood19" parent="." instance=ExtResource( 1 )]
+position = Vector2( 477.103, 0 )
+
+[node name="Wood20" parent="." instance=ExtResource( 1 )]
+position = Vector2( 509.861, 0 )
+
+[node name="Wood21" parent="." instance=ExtResource( 1 )]
+position = Vector2( 542.304, 0 )
+
+[node name="Wood22" parent="." instance=ExtResource( 1 )]
+position = Vector2( 575.376, 0 )
+
+[node name="Wood23" parent="." instance=ExtResource( 1 )]
+position = Vector2( 607.59, 0 )
