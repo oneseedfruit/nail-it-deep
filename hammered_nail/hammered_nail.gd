@@ -15,7 +15,7 @@ func _physics_process(_delta: float) -> void:
 
 # warning-ignore:unused_argument
 func _process(delta: float) -> void:	
-	look_at(get_global_mouse_position())
+	look_at(Vector2(get_global_mouse_position().x, get_global_mouse_position().y + 128))
 	rotation -= PI / 2
 	rotation_degrees = clamp(rotation_degrees, -70, 70)
 	
