@@ -1,20 +1,36 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://plate/plate.PNG" type="Texture" id=1]
 
-[sub_resource type="PhysicsMaterial" id=1]
+[sub_resource type="PhysicsMaterial" id=3]
 rough = true
 absorbent = true
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends RigidBody2D
+
+signal camera_checked
+
+
+func _on_Game_screen_scrolled(camera_position: Vector2) -> void:
+	if camera_position.y - global_position.y > 1000:
+		queue_free()
+
+
+func _on_Timer_timeout():
+	emit_signal(\"camera_checked\")
+"
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 41.9254
 
 [node name="Plate" type="RigidBody2D"]
 mass = 0.01
-physics_material_override = SubResource( 1 )
+physics_material_override = SubResource( 3 )
 gravity_scale = 0.0
 contacts_reported = 2
 contact_monitor = true
+script = SubResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -30,3 +46,9 @@ shape = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

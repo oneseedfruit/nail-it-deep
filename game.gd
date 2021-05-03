@@ -2,6 +2,8 @@ extends Node2D
 
 export (PackedScene) var _PlateScene: PackedScene
 
+signal screen_scrolled(camera_position)
+
 var _is_ready: bool = false
 var _is_game_over: bool = false
 var _game_started: bool = false
@@ -35,6 +37,10 @@ func _physics_process(delta: float) -> void:
 	if $MainCamera.global_position.y - _last_pos.y > rand_range(50, 80):
 		var plate: RigidBody2D = _PlateScene.instance()
 		add_child(plate)
+		
+		plate.connect("camera_checked", self, "_on_Plate_camera_checked")
+		connect("screen_scrolled", plate, "_on_Game_screen_scrolled")
+		
 		randomize()
 		
 		var left: float = $MainCamera.global_position.x - 400
@@ -61,3 +67,7 @@ func _on_HammeredNail_nail_died() -> void:
 
 func _on_Timer_timeout() -> void:
 	_is_ready = true
+	
+	
+func _on_Plate_camera_checked() -> void:
+	emit_signal("screen_scrolled", $MainCamera.global_position)
