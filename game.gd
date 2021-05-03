@@ -29,7 +29,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_is_ready = false			
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	$MainCamera.global_position = $HammeredNail.global_position + Vector2(0, 50)
 	
 	if $MainCamera.global_position.y - _last_pos.y > rand_range(50, 80):

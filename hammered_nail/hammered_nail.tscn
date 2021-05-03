@@ -25,6 +25,7 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0.471954, 42.0024 )
 stream = ExtResource( 4 )
 
 [connection signal="hammered" from="Hammering" to="." method="_on_Hammering_hammered"]

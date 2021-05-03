@@ -24,7 +24,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_is_hammering = true
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not _is_stopped and _is_hammering:
 		$AnimationPlayer.play("hammering")
 	if $AnimationPlayer.playback_speed < 500:
